@@ -1,8 +1,16 @@
-﻿// Window Editor.cpp : 애플리케이션에 대한 진입점을 정의합니다.
-//
+﻿
 
 #include "framework.h"
 #include "Window Editor.h"
+
+// 폴더 경로 규칙
+// ..은 이 파일 위치에서 뒤로가기
+// \\a는 a폴더 진입
+#include "..\\Engine_SOURCE\\KApplication.h" // 다른 프로젝트의 라이브러리 헤더 추가.
+// #pragma comment (lib, "..\\x64\\Debug\\Engine_Window.lib") // 라이브러리 추가
+// 위에 로직은 라이브러리 추가를 의미하는데, 우리는 비주얼 스튜디오가 제공하는 기능으로 함.
+
+
 
 #define MAX_LOADSTRING 100
 
@@ -17,7 +25,7 @@ BOOL                InitInstance(HINSTANCE, int);
 LRESULT CALLBACK    WndProc(HWND, UINT, WPARAM, LPARAM);
 INT_PTR CALLBACK    About(HWND, UINT, WPARAM, LPARAM);
 
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
+int APIENTRY wWinMain(_In_ HINSTANCE hInstance, // 프로그램의 핸들
                      _In_opt_ HINSTANCE hPrevInstance,
                      _In_ LPWSTR    lpCmdLine,
                      _In_ int       nCmdShow)
@@ -30,7 +38,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
     // 전역 문자열을 초기화합니다.
     LoadStringW(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
     LoadStringW(hInstance, IDC_WINDOWEDITOR, szWindowClass, MAX_LOADSTRING);
-    MyRegisterClass(hInstance);
+    MyRegisterClass(hInstance); // 윈도우의 다양한 세팅을 초기화. 여기서 세팅한 정보를 나중에 원도우 만드는 함수가 참조해서 실제로 만듬.
 
     // 애플리케이션 초기화를 수행합니다:
     if (!InitInstance (hInstance, nCmdShow))
@@ -62,7 +70,7 @@ int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
 //
 //  용도: 창 클래스를 등록합니다.
 //
-ATOM MyRegisterClass(HINSTANCE hInstance)
+ATOM MyRegisterClass(HINSTANCE hInstance) // 에디터 윈도우에 필요한 변수들 초기화
 {
     WNDCLASSEXW wcex;
 
@@ -121,7 +129,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY  - 종료 메시지를 게시하고 반환합니다.
 //
 //
-LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
+LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam) // 반복문 도중 들어온 메세지 처리하는 함수.
 {
     switch (message)
     {
@@ -147,6 +155,10 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
             PAINTSTRUCT ps;
             HDC hdc = BeginPaint(hWnd, &ps);
             // TODO: 여기에 hdc를 사용하는 그리기 코드를 추가합니다...
+           
+            HBRUSH brush = CreateSolidBrush(RGB(0, 0, 255));
+            HBRUSH brush2 = (HBRUSH)SelectObject(hdc, brush); // 근데 여기서 SelectObject의 반환은 바뀌기전의 브러쉬or다른 옵젝의 반환을 함.
+
             EndPaint(hWnd, &ps);
         }
         break;

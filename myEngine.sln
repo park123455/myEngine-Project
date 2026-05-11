@@ -5,6 +5,10 @@ VisualStudioVersion = 17.8.34408.163
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Window Editor", "Window Editor\Window Editor.vcxproj", "{5B697AEC-CC09-4BD7-905F-D1BA0B6B31BF}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine_Window", "Engine_Window\Engine_Window.vcxproj", "{AEF4184A-BAF6-497C-ACB6-2C86D5A2B4C6}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Engine_SOURCE", "Engine_SOURCE\Engine_SOURCE.vcxitems", "{F9745A4F-9BAF-477B-9DD1-042549B47FB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -21,11 +25,23 @@ Global
 		{5B697AEC-CC09-4BD7-905F-D1BA0B6B31BF}.Release|x64.Build.0 = Release|x64
 		{5B697AEC-CC09-4BD7-905F-D1BA0B6B31BF}.Release|x86.ActiveCfg = Release|Win32
 		{5B697AEC-CC09-4BD7-905F-D1BA0B6B31BF}.Release|x86.Build.0 = Release|Win32
+		{AEF4184A-BAF6-497C-ACB6-2C86D5A2B4C6}.Debug|x64.ActiveCfg = Debug|x64
+		{AEF4184A-BAF6-497C-ACB6-2C86D5A2B4C6}.Debug|x64.Build.0 = Debug|x64
+		{AEF4184A-BAF6-497C-ACB6-2C86D5A2B4C6}.Debug|x86.ActiveCfg = Debug|Win32
+		{AEF4184A-BAF6-497C-ACB6-2C86D5A2B4C6}.Debug|x86.Build.0 = Debug|Win32
+		{AEF4184A-BAF6-497C-ACB6-2C86D5A2B4C6}.Release|x64.ActiveCfg = Release|x64
+		{AEF4184A-BAF6-497C-ACB6-2C86D5A2B4C6}.Release|x64.Build.0 = Release|x64
+		{AEF4184A-BAF6-497C-ACB6-2C86D5A2B4C6}.Release|x86.ActiveCfg = Release|Win32
+		{AEF4184A-BAF6-497C-ACB6-2C86D5A2B4C6}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5D9DA8F0-CC19-49CA-9F62-0E8D29570427}
+	EndGlobalSection
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		Engine_SOURCE\Engine_SOURCE.vcxitems*{aef4184a-baf6-497c-acb6-2c86d5a2b4c6}*SharedItemsImports = 4
+		Engine_SOURCE\Engine_SOURCE.vcxitems*{f9745a4f-9baf-477b-9dd1-042549b47fb6}*SharedItemsImports = 9
 	EndGlobalSection
 EndGlobal
