@@ -1,5 +1,5 @@
 #include "KApplication.h"
-
+#include "Input.h"
 
 namespace k
 {
@@ -19,6 +19,8 @@ namespace k
 		myHdc = GetDC(myApiHandle);
 
 		player.SetPosition(0, 0);
+
+		Input::Initialize();
 	}
 
 
@@ -34,6 +36,8 @@ namespace k
 
 	void Application::Update()
 	{
+		Input::Update();
+
 		player.Update();
 	}
 	void Application::LateUpdate()

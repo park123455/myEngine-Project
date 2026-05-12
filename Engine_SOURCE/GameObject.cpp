@@ -1,5 +1,5 @@
 #include "GameObject.h"
-
+#include "Input.h"
 
 namespace k
 {
@@ -16,22 +16,22 @@ namespace k
 
 	void GameObject::Update()
 	{
-		if (GetAsyncKeyState(VK_LEFT) & 0x8000)
+		if (Input::GetKey(keyCode::A))
 		{
 			posX -= 0.01f;
 		}
 
-		if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
+		if (Input::GetKey(keyCode::D))
 		{
 			posX += 0.01f;
 		}
 
-		if (GetAsyncKeyState(VK_UP) & 0x8000)
+		if (Input::GetKey(keyCode::W))
 		{
 			posY -= 0.01f;
 		}
 
-		if (GetAsyncKeyState(VK_DOWN) & 0x8000)
+		if (Input::GetKey(keyCode::S))
 		{
 			posY += 0.01f;
 		}
