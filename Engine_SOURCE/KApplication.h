@@ -21,6 +21,12 @@ namespace k
 		HWND myApiHandle;
 		HDC myHdc;
 
+		HDC backHdc;
+		HBITMAP backBuffer; // dc가 가진 도화지 1개(빈 그림파일)
+
+		UINT screenWidth;
+		UINT screenHeight;
+
 		GameObject player;
 	};
 }

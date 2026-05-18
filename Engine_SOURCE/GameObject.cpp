@@ -1,5 +1,6 @@
 #include "GameObject.h"
 #include "Input.h"
+#include "Time.h"
 
 namespace k
 {
@@ -16,24 +17,26 @@ namespace k
 
 	void GameObject::Update()
 	{
+		const int speed = 100.0f;
+
 		if (Input::GetKey(keyCode::A))
 		{
-			posX -= 0.01f;
+			posX -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(keyCode::D))
 		{
-			posX += 0.01f;
+			posX += speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(keyCode::W))
 		{
-			posY -= 0.01f;
+			posY -= speed * Time::DeltaTime();
 		}
 
 		if (Input::GetKey(keyCode::S))
 		{
-			posY += 0.01f;
+			posY += speed * Time::DeltaTime();
 		}
 	}
 	void GameObject::LateUpdate()

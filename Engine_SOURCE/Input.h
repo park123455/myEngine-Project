@@ -15,6 +15,7 @@ namespace k
 		Q, W, E, R, T, Y, U, I, O, P,
 		A, S, D, F, G, H, J, K, L,
 		Z, X, C, V, B, N, M,
+		Left, Right, Down, Up,
 		End,
 	};
 
@@ -32,8 +33,7 @@ namespace k
 
 		static void Initialize();
 		static void Update();
-
-
+		
 		// 키보드 버튼 하나에 저장된 현재 키상태를 가져온다.
 		// 참고로 UINT 는 언사인드 int를 말한다. 즉 음수를 포함하지 않는 정수 자료형. 줄임말임.
 		static bool GetKeyDown(keyCode code)
@@ -48,6 +48,10 @@ namespace k
 		{ 
 			return keyBoard[(UINT)code].state == KeyState::Pressed; 
 		}
+
+	private:
+		static void CreateKeys();
+		static void UpdateKeys();
 
 	private:
 		static std::vector<Key> keyBoard;
